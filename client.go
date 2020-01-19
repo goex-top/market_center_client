@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	. "github.com/goex-top/market_center"
+	"github.com/mitchellh/mapstructure"
 	goex "github.com/nntaoli-project/GoEx"
 	"log"
 	"net"
@@ -74,21 +75,26 @@ func (c *Client) GetDepth(exchange, pair string) (*goex.Depth, error) {
 	if err != nil {
 		return nil, err
 	}
-
-	return rsp.Data.(*goex.Depth), nil
+	depth := &goex.Depth{}
+	r := rsp.Data.(map[string]interface{})
+	mapstructure.Decode(r, depth)
+	return depth, nil
 }
 
 func (c *Client) GetTicker(exchange, pair string) (*goex.Ticker, error) {
 	req := &Request{}
-	req.Type = Type_GetDepth
+	req.Type = Type_GetTicker
 	req.ExchangeName = exchange
 	req.CurrencyPair = pair
 	rsp, err := c.newUdsRequest(req)
 	if err != nil {
 		return nil, err
 	}
+	ticker := &goex.Ticker{}
+	r := rsp.Data.(map[string]interface{})
+	mapstructure.Decode(r, ticker)
 
-	return rsp.Data.(*goex.Ticker), nil
+	return ticker, nil
 }
 
 func (c *Client) SubscribeDepth(exchange, pair string, period int64) error {
