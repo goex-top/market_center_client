@@ -92,7 +92,19 @@ func (c *Client) GetTicker(exchange, pair string) (*goex.Ticker, error) {
 	}
 	ticker := &goex.Ticker{}
 	r := rsp.Data.(map[string]interface{})
-	mapstructure.Decode(r, ticker)
+
+	config := &mapstructure.DecoderConfig{
+		WeaklyTypedInput: true,
+		Result:           ticker,
+	}
+	decoder, err := mapstructure.NewDecoder(config)
+	if err != nil {
+		return nil, err
+	}
+	err = decoder.Decode(r)
+	if err != nil {
+		return nil, err
+	}
 
 	return ticker, nil
 }
