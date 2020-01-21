@@ -40,7 +40,7 @@ func (c *Client) newUdsRequest(req *Request) (*Response, error) {
 	r, err := json.Marshal(req)
 	c.con.Write(r)
 
-	buf := make([]byte, 1024)
+	buf := make([]byte, 1024*20)
 	n, err := c.con.Read(buf[:])
 	if err != nil {
 		log.Errorln(err, n)
