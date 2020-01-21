@@ -13,17 +13,17 @@ func TestClient_GetSupportList(t *testing.T) {
 }
 
 func TestClient_SubscribeDepth(t *testing.T) {
-	t.Log(client.SubscribeDepth(goex.BINANCE, "EOS_USDT", 100))
+	t.Log(client.SubscribeDepth(goex.BINANCE, "BTC_USDT", 200))
 }
 
 func TestClient_GetDepth(t *testing.T) {
-	client.SubscribeDepth(goex.BINANCE, "EOS_USDT", 100)
+	client.SubscribeDepth(goex.BINANCE, "BTC_USDT", 200)
 	time.Sleep(time.Second)
-	t.Log(client.GetDepth(goex.BINANCE, "EOS_USDT"))
+	t.Log(client.GetDepth(goex.BINANCE, "BTC_USDT"))
 }
 
 func TestClient_GetTicker(t *testing.T) {
-	client.SubscribeTicker(goex.BINANCE, "EOS_USDT", 100)
+	client.SubscribeTicker(goex.BINANCE, "BTC_USDT", 200)
 	time.Sleep(time.Second)
-	t.Log(client.GetTicker(goex.BINANCE, "EOS_USDT"))
+	t.Log(client.GetTicker(goex.BINANCE, "BTC_USDT"))
 }

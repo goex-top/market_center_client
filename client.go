@@ -3,11 +3,10 @@ package market_center_client
 import (
 	"encoding/json"
 	"errors"
-	"fmt"
 	. "github.com/goex-top/market_center"
 	"github.com/mitchellh/mapstructure"
 	goex "github.com/nntaoli-project/GoEx"
-	"log"
+	log "github.com/sirupsen/logrus"
 	"net"
 )
 
@@ -16,30 +15,38 @@ type Client struct {
 }
 
 func NewClient() *Client {
-	c, err := net.Dial("unix", UDS_PATH)
+	return NewClientWithPath(UDS_PATH)
+}
+
+func NewClientWithPath(udsPath string) *Client {
+	c, err := net.Dial("unix", udsPath)
 	if err != nil {
-		log.Fatal("Dial error: ", err)
+		log.Fatalf("Dial error: %v", err)
 	}
 
 	return &Client{con: c}
 }
 
+func (c *Client) EnableDebug() {
+	log.SetLevel(log.DebugLevel)
+}
+
 func (c *Client) Close() {
+	log.Debugln("Close")
 	c.con.Close()
 }
 
 func (c *Client) newUdsRequest(req *Request) (*Response, error) {
 	r, err := json.Marshal(req)
-	fmt.Println(err, string(r))
 	c.con.Write(r)
 
 	buf := make([]byte, 1024)
 	n, err := c.con.Read(buf[:])
 	if err != nil {
-		fmt.Println(err, n)
+		log.Errorln(err, n)
 		return nil, err
 	}
-	fmt.Println("Client got:", string(buf[:n]))
+	log.Debugln("Client got:", string(buf[:n]))
 	rsp := Response{}
 	err = json.Unmarshal(buf[:n], &rsp)
 	if err != nil {
@@ -52,6 +59,7 @@ func (c *Client) newUdsRequest(req *Request) (*Response, error) {
 }
 
 func (c *Client) GetSupportList() ([]string, error) {
+	log.Debugln("GetSupportList")
 	req := &Request{}
 	req.Type = Type_GetSupportList
 	rsp, err := c.newUdsRequest(req)
@@ -67,6 +75,7 @@ func (c *Client) GetSupportList() ([]string, error) {
 }
 
 func (c *Client) GetDepth(exchange, pair string) (*goex.Depth, error) {
+	log.Debugln("GetDepth")
 	req := &Request{}
 	req.Type = Type_GetDepth
 	req.ExchangeName = exchange
@@ -82,6 +91,7 @@ func (c *Client) GetDepth(exchange, pair string) (*goex.Depth, error) {
 }
 
 func (c *Client) GetTicker(exchange, pair string) (*goex.Ticker, error) {
+	log.Debugln("GetTicker")
 	req := &Request{}
 	req.Type = Type_GetTicker
 	req.ExchangeName = exchange
@@ -110,6 +120,7 @@ func (c *Client) GetTicker(exchange, pair string) (*goex.Ticker, error) {
 }
 
 func (c *Client) SubscribeDepth(exchange, pair string, period int64) error {
+	log.Debugln("SubscribeDepth")
 	req := &Request{}
 	req.Type = Type_SubscribeDepth
 	req.ExchangeName = exchange
@@ -124,6 +135,7 @@ func (c *Client) SubscribeDepth(exchange, pair string, period int64) error {
 }
 
 func (c *Client) SubscribeTicker(exchange, pair string, period int64) error {
+	log.Debugln("SubscribeTicker")
 	req := &Request{}
 	req.Type = Type_SubscribeTicker
 	req.ExchangeName = exchange

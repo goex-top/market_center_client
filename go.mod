@@ -6,4 +6,5 @@ require (
 	github.com/goex-top/market_center v0.0.0-20200117093829-e21a8433eb2d
 	github.com/mitchellh/mapstructure v1.1.2
 	github.com/nntaoli-project/GoEx v1.0.10
+	github.com/sirupsen/logrus v1.4.2
 )
