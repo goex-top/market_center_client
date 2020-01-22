@@ -43,5 +43,13 @@ func TestNewClient(t *testing.T) {
 		fmt.Println(c2.GetSpotTicker("binance.com", "BTC_USDT"))
 		time.Sleep(time.Second)
 	}
+}
 
+func TestClient_GetFutureTicker(t *testing.T) {
+	c1 := NewClient()
+	c1.SubscribeFutureTicker("bitmex.com", "", "BTC_USDT", 1010)
+	for {
+		fmt.Println(c1.GetFutureTicker("bitmex.com", "", "BTC_USDT"))
+		time.Sleep(time.Second)
+	}
 }
