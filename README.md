@@ -1,5 +1,7 @@
 # Market Center Client
-client for [market center](https://github.com/goex-top/market_center)
+![HitCount](http://hits.dwyl.io/goex-top/market_center_client.svg)
+
+Client for [market center](https://github.com/goex-top/market_center)
 
 ## APIs
 
@@ -11,3 +13,6 @@ client for [market center](https://github.com/goex-top/market_center)
 * GetTrade(exchangeName, currencyPair) (*Trade, error)
 * GetSupportList() []
 
+### 观星者
+
+![观星者](https://starchart.cc/goex-top/market_center_client.svg)
