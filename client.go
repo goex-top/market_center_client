@@ -74,10 +74,10 @@ func (c *Client) GetSupportList() ([]string, error) {
 	return list, nil
 }
 
-func (c *Client) GetDepth(exchange, pair string) (*goex.Depth, error) {
-	log.Debugln("GetDepth")
+func (c *Client) GetSpotDepth(exchange, pair string) (*goex.Depth, error) {
+	log.Debugln("GetSpotDepth")
 	req := &Request{}
-	req.Type = Type_GetDepth
+	req.Type = Type_GetSpotDepth
 	req.ExchangeName = exchange
 	req.CurrencyPair = pair
 	rsp, err := c.newUdsRequest(req)
@@ -90,10 +90,10 @@ func (c *Client) GetDepth(exchange, pair string) (*goex.Depth, error) {
 	return depth, nil
 }
 
-func (c *Client) GetTicker(exchange, pair string) (*goex.Ticker, error) {
-	log.Debugln("GetTicker")
+func (c *Client) GetSpotTicker(exchange, pair string) (*goex.Ticker, error) {
+	log.Debugln("GetSpotTicker")
 	req := &Request{}
-	req.Type = Type_GetTicker
+	req.Type = Type_GetSpotTicker
 	req.ExchangeName = exchange
 	req.CurrencyPair = pair
 	rsp, err := c.newUdsRequest(req)
@@ -119,10 +119,10 @@ func (c *Client) GetTicker(exchange, pair string) (*goex.Ticker, error) {
 	return ticker, nil
 }
 
-func (c *Client) SubscribeDepth(exchange, pair string, period int64) error {
-	log.Debugln("SubscribeDepth")
+func (c *Client) SubscribeSpotDepth(exchange, pair string, period int64) error {
+	log.Debugln("SubscribeSpotDepth")
 	req := &Request{}
-	req.Type = Type_SubscribeDepth
+	req.Type = Type_SubscribeSpotDepth
 	req.ExchangeName = exchange
 	req.CurrencyPair = pair
 	req.Period = period
@@ -134,13 +134,93 @@ func (c *Client) SubscribeDepth(exchange, pair string, period int64) error {
 	return nil
 }
 
-func (c *Client) SubscribeTicker(exchange, pair string, period int64) error {
-	log.Debugln("SubscribeTicker")
+func (c *Client) SubscribeSpotTicker(exchange, pair string, period int64) error {
+	log.Debugln("SubscribeSpotTicker")
 	req := &Request{}
-	req.Type = Type_SubscribeTicker
+	req.Type = Type_SubscribeSpotTicker
 	req.ExchangeName = exchange
 	req.CurrencyPair = pair
 	req.Period = period
+	_, err := c.newUdsRequest(req)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// future
+func (c *Client) GetFutureDepth(exchange, contractType, pair string) (*goex.Depth, error) {
+	log.Debugln("GetFutureDepth")
+	req := &Request{}
+	req.Type = Type_GetFutureDepth
+	req.ExchangeName = exchange
+	req.CurrencyPair = pair
+	req.ContractType = contractType
+	rsp, err := c.newUdsRequest(req)
+	if err != nil {
+		return nil, err
+	}
+	depth := &goex.Depth{}
+	r := rsp.Data.(map[string]interface{})
+	mapstructure.Decode(r, depth)
+	return depth, nil
+}
+
+func (c *Client) GetFutureTicker(exchange, contractType, pair string) (*goex.Ticker, error) {
+	log.Debugln("GetFutureTicker")
+	req := &Request{}
+	req.Type = Type_GetFutureTicker
+	req.ExchangeName = exchange
+	req.CurrencyPair = pair
+	req.ContractType = contractType
+	rsp, err := c.newUdsRequest(req)
+	if err != nil {
+		return nil, err
+	}
+	ticker := &goex.Ticker{}
+	r := rsp.Data.(map[string]interface{})
+
+	config := &mapstructure.DecoderConfig{
+		WeaklyTypedInput: true,
+		Result:           ticker,
+	}
+	decoder, err := mapstructure.NewDecoder(config)
+	if err != nil {
+		return nil, err
+	}
+	err = decoder.Decode(r)
+	if err != nil {
+		return nil, err
+	}
+
+	return ticker, nil
+}
+
+func (c *Client) SubscribeFutureDepth(exchange, contractType, pair string, period int64) error {
+	log.Debugln("SubscribeFutureDepth")
+	req := &Request{}
+	req.Type = Type_SubscribeFutureDepth
+	req.ExchangeName = exchange
+	req.CurrencyPair = pair
+	req.Period = period
+	req.ContractType = contractType
+	_, err := c.newUdsRequest(req)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (c *Client) SubscribeFutureTicker(exchange, contractType, pair string, period int64) error {
+	log.Debugln("SubscribeFutureTicker")
+	req := &Request{}
+	req.Type = Type_SubscribeFutureTicker
+	req.ExchangeName = exchange
+	req.CurrencyPair = pair
+	req.Period = period
+	req.ContractType = contractType
 	_, err := c.newUdsRequest(req)
 	if err != nil {
 		return err
