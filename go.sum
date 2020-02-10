@@ -8,6 +8,7 @@ github.com/goex-top/market_center v1.0.2-alpha h1:RN7dIrhpL8EO1fZFcRKfodQ9Pj/IP1
 github.com/goex-top/market_center v1.0.2-alpha/go.mod h1:jE5o/u6j6gNna8JlHnY3rd5P2tvjsuQz4e+D5d4y4lM=
 github.com/goex-top/market_center v1.0.2-alpha.0.20200202063900-4d0112131931 h1:BmiF6TXTKGTIq+uLmk8cLavFD2S7c+lJh2d/OHap9QY=
 github.com/goex-top/market_center v1.0.2-alpha.0.20200202063900-4d0112131931/go.mod h1:LnCBfTRGrnZ0q2phzJd46ONp3l1+1jztcw95CTRrb78=
+github.com/goex-top/market_center v1.0.3-alpha/go.mod h1:LnCBfTRGrnZ0q2phzJd46ONp3l1+1jztcw95CTRrb78=
 github.com/google/gofuzz v1.0.0/go.mod h1:dBl0BpW6vV/+mYPU4Po3pmUjxk6FQPldtuIdl/M65Eg=
 github.com/google/uuid v1.1.1 h1:Gkbcsh/GbpXz7lPftLA3P6TYMwjCLYm83jiFQZF/3gY=
 github.com/google/uuid v1.1.1/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
@@ -25,6 +26,7 @@ github.com/mitchellh/mapstructure v1.1.2 h1:fmNYVwqnSfB9mZU6OS2O6GsXM+wcskZDuKQz
 github.com/mitchellh/mapstructure v1.1.2/go.mod h1:FVVH3fgwuzCH5S8UJGiWEs2h04kUh9fWfEaFds41c1Y=
 github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421/go.mod h1:6dJC0mAP4ikYIbvyc7fijjWJddQyLn8Ig3JB5CqoB9Q=
 github.com/modern-go/reflect2 v0.0.0-20180701023420-4b7aa43c6742/go.mod h1:bx2lNnkwVCuqBIxFjflWJWanXIb3RllmbCylyMrvgv0=
+github.com/nntaoli-project/GoEx v0.0.0-20200201130842-17c3ab0a2cbc h1:VyEZZ53GwMnRlU5SBNSFawbMplMOTuh38TK+Wx6o6vs=
 github.com/nntaoli-project/GoEx v0.0.0-20200201130842-17c3ab0a2cbc/go.mod h1:X+VFCVFrH6yDD8MAUX4YcB+Mvp61hnkICmTo1b9BTZg=
 github.com/nntaoli-project/GoEx v1.0.10 h1:gP9Uez6IIZiGOLSzv4HcLxfWbMc0xT2Tm3j2xarCgK4=
 github.com/nntaoli-project/GoEx v1.0.10/go.mod h1:vegxvTCDPN1N/bUrJ+fv6+SN2DEnDLRHlkNEGg+zJes=
