@@ -2,7 +2,7 @@ package market_center_client
 
 import (
 	"fmt"
-	goex "github.com/nntaoli-project/GoEx"
+	"github.com/nntaoli-project/goex"
 	"testing"
 	"time"
 )
@@ -19,7 +19,7 @@ func TestClient_SubscribeSpotDepth(t *testing.T) {
 
 func TestClient_GetSpotDepth(t *testing.T) {
 	client.SubscribeSpotDepth(goex.BINANCE, "BTC_USDT", 200)
-	time.Sleep(time.Second)
+	time.Sleep(1 * time.Second)
 	t.Log(client.GetSpotDepth(goex.BINANCE, "BTC_USDT"))
 }
 
@@ -47,7 +47,7 @@ func TestNewClient(t *testing.T) {
 
 func TestClient_GetFutureTicker(t *testing.T) {
 	c1 := NewClient()
-	c1.SubscribeFutureTicker("bitmex.com", "", "BTC_USDT", 1010)
+	c1.SubscribeFutureTicker("bitmex.com", "", "BTC_USDT", 1500)
 	for {
 		fmt.Println(c1.GetFutureTicker("bitmex.com", "", "BTC_USDT"))
 		time.Sleep(time.Second)

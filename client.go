@@ -5,7 +5,7 @@ import (
 	"errors"
 	. "github.com/goex-top/market_center"
 	"github.com/mitchellh/mapstructure"
-	goex "github.com/nntaoli-project/GoEx"
+	"github.com/nntaoli-project/goex"
 	log "github.com/sirupsen/logrus"
 	"net"
 )
