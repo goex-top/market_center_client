@@ -1,11 +1,11 @@
-github.com/Kucoin/kucoin-go-sdk v1.2.2/go.mod h1:Wz3fTuM5gIct9chN6H6OBCXbku10XEcAjH5g/FL3wIY=
+github.com/Kucoin/kucoin-go-sdk v1.2.7/go.mod h1:Wz3fTuM5gIct9chN6H6OBCXbku10XEcAjH5g/FL3wIY=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/deckarep/golang-set v1.7.1/go.mod h1:93vsz/8Wt4joVM7c2AVqh+YRMiUSc14yDtF28KmMOgQ=
 github.com/go-openapi/errors v0.19.2/go.mod h1:qX0BLWsyaKfvhluLejVpVNwNRdXZhEbTA4kxxpKBC94=
-github.com/goex-top/market_center v1.0.3-alpha.0.20200226162439-93dd6ef62414 h1:UrbqDJI83Y0E/TMQr3M9dMaEenUczhrelssZNue/z2c=
-github.com/goex-top/market_center v1.0.3-alpha.0.20200226162439-93dd6ef62414/go.mod h1:CIfNWaFhp8974PMDmCRvTiYT8pNlBpNio845Elyk62I=
+github.com/goex-top/market_center v1.0.4-alpha.0.20200430022203-a9e97a17fc7d h1:1ohhk6Hqy8v8EAM1RCZ1Jll6ETZsTx37qRLFG//CWYk=
+github.com/goex-top/market_center v1.0.4-alpha.0.20200430022203-a9e97a17fc7d/go.mod h1:MOdBDDeJDoI/Rq3IaApzdj0u6FR58RTf+97+B/SeQQM=
 github.com/google/gofuzz v1.0.0/go.mod h1:dBl0BpW6vV/+mYPU4Po3pmUjxk6FQPldtuIdl/M65Eg=
 github.com/google/uuid v1.1.1 h1:Gkbcsh/GbpXz7lPftLA3P6TYMwjCLYm83jiFQZF/3gY=
 github.com/google/uuid v1.1.1/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
@@ -25,8 +25,8 @@ github.com/mitchellh/mapstructure v1.1.2 h1:fmNYVwqnSfB9mZU6OS2O6GsXM+wcskZDuKQz
 github.com/mitchellh/mapstructure v1.1.2/go.mod h1:FVVH3fgwuzCH5S8UJGiWEs2h04kUh9fWfEaFds41c1Y=
 github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421/go.mod h1:6dJC0mAP4ikYIbvyc7fijjWJddQyLn8Ig3JB5CqoB9Q=
 github.com/modern-go/reflect2 v0.0.0-20180701023420-4b7aa43c6742/go.mod h1:bx2lNnkwVCuqBIxFjflWJWanXIb3RllmbCylyMrvgv0=
-github.com/nntaoli-project/goex v1.0.9-0.20200226142801-215edd0592fc h1:lB4Kz48ksK1QvgrxtMAtBvVSTt0yWvQ7+AnOkYMa998=
-github.com/nntaoli-project/goex v1.0.9-0.20200226142801-215edd0592fc/go.mod h1:dhUT0OjkjEyZY8Zj4pu6BF3ZLNRdm5myacC3JxxJWHo=
+github.com/nntaoli-project/goex v1.1.1 h1:ziS6cBqOij1jUwcofkBTZvq1/mwi1/Pq9u8bS314XkI=
+github.com/nntaoli-project/goex v1.1.1/go.mod h1:ulGh9BCAfd+mJAiGD2OokRXUFMM9T2kjr6YSQvo6uiw=
 github.com/nubo/jwt v0.0.0-20150918093313-da5b79c3bbaf/go.mod h1:LuR7jHS+7SJ6EywD7zZiO6h0vwTBSevFk5wunVt3gf4=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
